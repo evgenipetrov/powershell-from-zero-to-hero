@@ -1,6 +1,6 @@
 ﻿<# 14. FORMATTING COMMAND OUTPUT #>
 
-# 1. Formatting wide 
+## 1. Formatting wide 
 
 # intro
 Get-Process | Format-Wide
@@ -11,7 +11,7 @@ Get-Process | Format-Wide -Property Id
 # cannot format by more than one property
 Get-Process | Format-Wide -Property Id, Name
 
-# 2. Formatting lists
+## 2. Formatting lists
 
 # intro. note that properties are different from format table default properties
 Get-Process | Format-List
@@ -25,7 +25,7 @@ Get-Process | Format-List -Property Id, Name
 # a great way to verify input data
 gps | fl *
 
-# 3. Formatting tables
+## 3. Formatting tables
 
 # intro. note different properties from default format list output
 Get-Process | Format-Table
@@ -48,5 +48,18 @@ Get-Service | Format-Table -GroupBy Status -Property name, status, displayname
 # if we want a neat table we should sort them first
 Get-Service | Sort-Object -Property status | Format-Table -GroupBy Status -Property name, status, displayname
 
-# renaming columns is possible 
-Get-Process |
+# renaming columns is possible.
+Get-Process | Format-Table -Property Name, Id, @{n='VM(MB)';e={$_.VM/1MB}},@{n='PM(MB)';e={$_.PM/1MB}} -AutoSize
+
+# format table is designed with display in mind. hotice how, if uncommented, the autosize disregards the width property
+Get-Process | Format-Table -Property Name, Id, @{n='VM(MB)';e={$_.VM/1MB};formatstring='N2';align='right';width=55},@{n='PM(MB)';e={$_.PM/1MB}} # -AutoSize
+
+# always have in mind what is in the pipeline
+Get-Process | Format-Table -Property Name, Id, @{n='VM(MB)';e={$_.VM/1MB};formatstring='N2';align='right';width=55},@{n='PM(MB)';e={$_.PM/1MB}} | ConvertTo-Html | Out-File -FilePath c:\temp\processes.html
+
+# format table produces different objects. format commads produce objects designed for visual display. therefore formatting destroys data and must be done in the very end!
+Get-Process | Format-Table | Get-Member
+
+# filter to the left, format to the right
+Get-Process | Where-Object {$_.Name -eq "svchost"} | Format-Table
+
