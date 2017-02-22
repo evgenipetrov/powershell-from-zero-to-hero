@@ -49,9 +49,9 @@ TakeEventLogs -Security -Newest 10
 
 21. Display a list of running processes. format is as 5 column table. Use Id, Name, WS, PM and VM. Calculate VM in Gigabytes. Be precise up to the 4th decinal number after the dot.
 
-22. Display a list of recently ran commands.
+22. Display a list of recently ran commands and the time it took to execute them. Find the 10 commands that took longest to execute. 
 
-23. Display a list of recently ran commands and the time it took to execute them. 
+23. Find at least 4 ways to stop all running instances of notepad.
 
 ##
 
