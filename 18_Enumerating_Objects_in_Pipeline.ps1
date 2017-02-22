@@ -76,3 +76,10 @@ Get-Process -Name notepad | Select-Object -ExpandProperty Id
 # shortening using the method. notice there are no parentheses
 notepad;notepad;notepad;
 Get-Process -Name notepad | Select-Object kill
+
+# potential problems and downsides
+Get-Process | ForEach-Object name.toupper()
+
+# performance test 4
+notepad;notepad;notepad; 
+Measure-Command -Expression { Get-Process -Name notepad | ForEach-Object kill }
