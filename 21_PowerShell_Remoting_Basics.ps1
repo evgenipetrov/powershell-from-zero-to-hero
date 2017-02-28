@@ -27,6 +27,47 @@ winrm quickconfig
 # configure a firewall exception.
 # location: Computer Configuration > Windows Settings > Administrative Templates > Network > Network Connections > Windows Firewall > Domain Profile > Windows Firewall: Allow local port exceptions. / Windows Firewall: Define inbound Port Exceptions > Port 5985
 
-
 ## 4. Basic usage
 
+# check the remoting commands
+Get-Command -Noun WSMan*
+
+# check connections
+cd WSMan:
+dir
+
+# connect to computer
+Connect-WSMan -ComputerName dc
+dir
+
+# connect to another computer
+Connect-WSMan -ComputerName member,win7 # note how ComputerName parameter does not support array of string input
+Connect-WSMan -ComputerName member
+Connect-WSMan -ComputerName win7
+
+# check WSMan server configuration
+cd WSman:
+dir
+cd .\dc
+dir
+cd .\Listener
+dir
+cd WSMan:\dc\Service\DefaultPorts
+dir
+
+# check PowerShell related configuration
+cd WSMan:\dc\Shell
+dir
+
+# enter 1:1 session to a single computer
+Enter-PSSession -ComputerName member.lab.pri
+
+# run any commands
+Get-Process
+Get-Process | gm
+exit
+
+# execute 1:n command
+Invoke-Command -ScriptBlock { Get-EventLog -LogName Security -Newest 10 } -ComputerName dc.lab.pri, member.lab.pri
+
+# 
