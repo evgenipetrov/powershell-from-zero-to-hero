@@ -70,4 +70,24 @@ exit
 # execute 1:n command
 Invoke-Command -ScriptBlock { Get-EventLog -LogName Security -Newest 10 } -ComputerName dc.lab.pri, member.lab.pri
 
-# 
+# execute remotely and format locally
+Invoke-Command -ScriptBlock { Get-EventLog -LogName Security -Newest 10 } -ComputerName dc.lab.pri, member.lab.pri | Format-Table -GroupBy PSComputerName # | Out-File C:\temp\remote-logs.txt
+
+# double hop scenario
+cd WSMan:\localhost\Client\Auth
+dir
+
+cd WSMan:\localhost\Service\Auth
+dir
+
+# enable delegation as client
+Enable-WSManCredSSP -Role Client -DelegateComputer "*.lab.pri"
+
+# enable targets - GPO 
+# Computer Configuration > Policies > Administrative Templated > System > Credentials Delegation > Allow Delegating Fresh Credentials
+
+# make sure to specify -Authentication for the Enter-PSSession command
+Get-Help Enter-PSSession 
+
+
+
