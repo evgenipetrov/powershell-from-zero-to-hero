@@ -38,53 +38,89 @@
 (Get-Service -Name SPTimerV4).Status -eq 'Running'
 
 # another example with filterscript
-Get-Service | Where-Object -FilterScript {$_.Name -like 's*'}
+Get-Service | Where-Object -FilterScript {
+  $_.Name -like 's*'
+}
 
 # shorter, with alias
-Get-Service | Where-Object {$_.Name -like 's*'}
+Get-Service | Where-Object -FilterScript {
+  $_.Name -like 's*'
+}
 
 # even shorter
-Get-Service | Where {$_.Name -like 's*'}
+Get-Service | Where-Object -FilterScript {
+  $_.Name -like 's*'
+}
 
 # can we get shorter than that?
-Get-Service | ? {$_.Name -like 's*'}
+Get-Service | Where-Object -FilterScript {
+  $_.Name -like 's*'
+}
 
 # yes we can!
-gsv | ? {$_.Name -like 's*'}
+Get-Service | Where-Object -FilterScript {
+  $_.Name -like 's*'
+}
 
 ## 3. Basic boolean operators
 
 # comparing boolean values
-Get-Process | Where-Object { $_.Responding -eq $true } | Format-Wide -Property name
+Get-Process |
+Where-Object -FilterScript {
+  $_.Responding -eq $true 
+} |
+Format-Wide -Property name
 
 # we do not need to compare them actually
-Get-Process | Where-Object { $_.Responding } | Format-Wide -Property name
+Get-Process |
+Where-Object -FilterScript {
+  $_.Responding 
+} |
+Format-Wide -Property name
 
 # let us reverse the logic. no output is good
-Get-Process | Where-Object { -not $_.Responding } | Format-Wide -Property name
+Get-Process |
+Where-Object -FilterScript {
+  -not $_.Responding 
+} |
+Format-Wide -Property name
 
 # can we get shorter? yes - in PS 3.0+
-Get-Service | Where-Object 'Status' -eq 'Running' 
+Get-Service | Where-Object -Property 'Status' -EQ -Value 'Running' 
 
 ## 4. Filtering items out of pipeline
 
 # filtering several times is slow
-Get-Service | Where-Object {$_.Name -like 's*'} | Where-Object {$_.Status -ne 'running'}
+Get-Service |
+Where-Object -FilterScript {
+  $_.Name -like 's*'
+} |
+Where-Object -FilterScript {
+  $_.Status -ne 'running'
+}
 
 # compared to filtering at once. can we make it even better?
-Get-Service | Where-Object {$_.Name -like 's*' -and $_.Status -ne 'running'}
+Get-Service | Where-Object -FilterScript {
+  $_.Name -like 's*' -and $_.Status -ne 'running'
+}
 
 # yes we can filter even more to the left
-Get-Service -Name s* | Where-Object {$_.Status -ne 'running' }
+Get-Service -Name s* | Where-Object -FilterScript {
+  $_.Status -ne 'running' 
+}
 
 # if you are filtering natively with command bear the underlying technology filtering syntax
 Get-ADUser -Filter 'Name -like "*SERVICE"'
 
 # or not ...
-Get-ADUser -Filter * | Where-Object { $_.Name -like '*service' }
+Get-ADUser -Filter * | Where-Object -FilterScript {
+  $_.Name -like '*service' 
+}
 
 # filtering in PS 40+
-(Get-Service).Where({ $PSItem.status -eq 'running' })
+(Get-Service).Where({
+    $PSItem.status -eq 'running' 
+})
 
 
 
