@@ -20,7 +20,7 @@ Get-PSSession
 
 # load active directory module on these machines
 Invoke-Command -Session $dc, $rdc -ScriptBlock {
-  Import-Module -Name ActiveDirectory 
+  Import-Module -Name ActiveDirectory
 }
 
 # now load the commands (shortcuts) locally
@@ -60,7 +60,7 @@ Get-ADUser -Identity Administrator -Properties Department, City
 # try the invvoke command way
 $dc = New-PSSession -ComputerName dc.lab.pri
 Invoke-Command -Session $dc -ScriptBlock {
-  Get-ADUser -Identity Administrator | Set-ADUser -Department Technology -City Burgas 
+  Get-ADUser -Identity Administrator | Set-ADUser -Department Technology -City Burgas
 }
 Get-LABADUser -Identity Administrator -Properties City
 

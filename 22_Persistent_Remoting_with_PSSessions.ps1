@@ -11,13 +11,15 @@ exit
 Get-Process -ComputerName dc.lab.pri
 
 # demo with invoke-command cmdlet
-Invoke-Command -ScriptBlock { Get-Process } -ComputerName dc.lab.pri
+Invoke-Command -ScriptBlock {
+  Get-Process 
+} -ComputerName dc.lab.pri
 
 ## 2. Disconnedted sessions in PS 3.0+
 
 # leave a session up and running
 $dc = New-PSSession -ComputerName dc.lab.pri
-$computers = New-PSSession -ComputerName dc.lab.pri,member.lab.pri
+$computers = New-PSSession -ComputerName dc.lab.pri, member.lab.pri
 Get-PSSession 
 
 # how to re-use them 
@@ -30,7 +32,9 @@ Get-PSSession
 Enter-PSSession -Session $computers
 
 # same with invoke command - run a command on several remotes at same time
-Invoke-Command -Session $computers -ScriptBlock { dir c:\users }
+Invoke-Command -Session $computers -ScriptBlock {
+  Get-ChildItem -Path c:\users 
+}
 
 # remove a session
 $session | Remove-PSSession
@@ -46,7 +50,9 @@ Enter-PSSession -Session ( Get-PSSession -ComputerName dc.lab.pri | Select-Objec
 exit
 
 # disconnecting PSSession
-Get-PSSession | Select-Object -First 1 | Disconnect-PSSession
+Get-PSSession |
+Select-Object -First 1 |
+Disconnect-PSSession
 Get-PSSession # note the state of the session
 
 # find the disconnected sessions
@@ -55,6 +61,8 @@ Get-PSSession -ComputerName dc.lab.pri
 
 # reconnect to a session. we have to disconnect specifically beforehand
 Get-PSSession -ComputerName dc.lab.pri | Connect-PSSession
-Get-PSSession -ComputerName dc.lab.pri | Select-Object -First 1 | Enter-PSSession
+Get-PSSession -ComputerName dc.lab.pri |
+Select-Object -First 1 |
+Enter-PSSession
 exit
 Get-PSSession | Remove-PSSession

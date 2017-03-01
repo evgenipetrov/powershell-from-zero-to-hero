@@ -45,33 +45,39 @@
 ## task solution
 
 # subtask 1: how to get a list of installed features and roles on a computer
-help role
-help feature
+help -Name role
+help -Name feature
 
 # see what other commands we have on that module
 Get-Command -Module ServerManager # note the alias new -> install. note the ComputerName parameter
 
 # see some help for the suspected command
-help Get-WindowsFeature 
+help -Name Get-WindowsFeature 
 
 # test the command
 Get-WindowsFeature -ComputerName member
 
 # try to troubleshoot
-ping member
-ping dc
+PING.EXE member
+PING.EXE dc
 
 # test the command on a resolvable computer
 Get-WindowsFeature -ComputerName dc # note the space in the install state. note the isInstalled property
 
 # see if we can pull the installed features by the noticed property 
-Get-WindowsFeature -ComputerName dc | where { $_.isInstalled }
+Get-WindowsFeature -ComputerName dc | Where-Object -FilterScript {
+  $_.isInstalled 
+}
 
 # check the uninstallation possibilities
-help Uninstall-WindowsFeature # how to uninstall
+help -Name Uninstall-WindowsFeature # how to uninstall
 
 # see if uninstall cmdlet can accept feature by name
-Get-WindowsFeature -ComputerName dc | where { $_.isInstalled } | Export-Clixml c:\temp\feature-baseline.xml
+Get-WindowsFeature -ComputerName dc |
+Where-Object -FilterScript {
+  $_.isInstalled 
+} |
+Export-Clixml -Path c:\temp\feature-baseline.xml
 
 # check the baseline import
 Import-Clixml -Path c:\temp\feature-baseline.xml
@@ -80,23 +86,25 @@ Import-Clixml -Path c:\temp\feature-baseline.xml
 Install-WindowsFeature -Name telnet-client -ComputerName dc
 
 # try to detect the difference
-Compare-Object -ReferenceObject (Import-Clixml c:\temp\feature-baseline.xml) -DifferenceObject (Get-WindowsFeature -ComputerName dc)
+Compare-Object -ReferenceObject (Import-Clixml -Path c:\temp\feature-baseline.xml) -DifferenceObject (Get-WindowsFeature -ComputerName dc)
 
 # try to compare only the names
-Compare-Object -ReferenceObject (Import-Clixml c:\temp\feature-baseline.xml) -DifferenceObject (Get-WindowsFeature -ComputerName dc) -Property name 
+Compare-Object -ReferenceObject (Import-Clixml -Path c:\temp\feature-baseline.xml) -DifferenceObject (Get-WindowsFeature -ComputerName dc) -Property name 
 
 # now we have the list of names of features to uninstall, let us try it
-Uninstall-WindowsFeature -ComputerName dc -Name (Compare-Object -ReferenceObject (Import-Clixml c:\temp\feature-baseline.xml) -DifferenceObject (Get-WindowsFeature -ComputerName dc) -Property name)
+Uninstall-WindowsFeature -ComputerName dc -Name (Compare-Object -ReferenceObject (Import-Clixml -Path c:\temp\feature-baseline.xml) -DifferenceObject (Get-WindowsFeature -ComputerName dc) -Property name)
 
 # try to find the feature
-Get-WindowsFeature | where { $_.isInstalled }
+Get-WindowsFeature | Where-Object -FilterScript {
+  $_.isInstalled 
+}
 
 # try to make it look easier to read
 Uninstall-WindowsFeature -ComputerName dc -Name (
 
-    Compare-Object -ReferenceObject (Import-Clixml c:\temp\feature-baseline.xml) -DifferenceObject (Get-WindowsFeature -ComputerName dc) -Property name
+  Compare-Object -ReferenceObject (Import-Clixml -Path c:\temp\feature-baseline.xml) -DifferenceObject (Get-WindowsFeature -ComputerName dc) -Property name
     
-    )
+)
 
 
 

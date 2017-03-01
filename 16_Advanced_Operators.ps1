@@ -31,20 +31,20 @@
 'powershell' -like '*shell'
 
 # the contains operator is made for checking arrayelements
-'one','two',3,'four' -contains 3
+'one', 'two', 3, 'four' -contains 3
 
 # we can invert the logic
-'one','two',3,'four' -notcontains 'four'
+'one', 'two', 3, 'four' -notcontains 'four'
 
 # PS 3.0+ allows even more  inverted logic
-10 -in 1,2,3,4,5,6,7,8,9,10
+10 -in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 ## 3. Replace, Split and Join
 
 # make an array and join elements with ","
-$arr = 1,2,3,4,5
+$arr = 1, 2, 3, 4, 5
 $arr
-$list = $arr -join ","
+$list = $arr -join ','
 $list
 
 # how can we access the $list elements ?
@@ -54,7 +54,7 @@ $list[0]
 $list[1]
 
 # convert the list back to array
-$arr2 = $list -split ","
+$arr2 = $list -split ','
 $arr2
 
 # how do we make an array with only 1 member?
@@ -65,7 +65,7 @@ $arr = @()
 $arr += 1
 
 # replace
-'powershell' -replace "l","x"
+'powershell' -replace 'l', 'x'
 
 ## 4. Math and Assignment
 
@@ -109,19 +109,19 @@ $var++
 ## 7. Redirection
 
 # redirect like in old times
-dir > dir.txt
+Get-ChildItem > dir.txt
 
 # same as 
-dir | Out-File dir.txt
+Get-ChildItem | Out-File -FilePath dir.txt
 
 # append like in old times
-dir >> dir.txt
+Get-ChildItem >> dir.txt
 
 # same as 
-dir | Out-File dir.txt -Append
+Get-ChildItem | Out-File -FilePath dir.txt -Append
 
 # redirect the errors
-del c:\nothing 2> erorr.txt
+Remove-Item -Path c:\nothing 2> erorr.txt
 
 ## 8. Dot Sourcing
 
@@ -132,7 +132,7 @@ function test{
     Write-Host "hello"
 }
 
-"@ | Out-File functions.ps1
+"@ | Out-File -FilePath functions.ps1
 
 . .\functions.ps1 # the dotsourcing thing itself
 
@@ -149,18 +149,18 @@ test
 ## 10. Formatting
 
 # let us format some string like real programmers
-"Today is a {0} day, tomorrow will be even {1}. {3}" -f "bad","worse","test",":)"
+'Today is a {0} day, tomorrow will be even {1}. {3}' -f 'bad', 'worse', 'test', ':)'
 
 ## 11. Arrays
 
 # define an array
-$arr = 1,2,3,4,5
+$arr = 1, 2, 3, 4, 5
 
 # get array element per specific index
-$arr = 1,2,3,4,5
+$arr = 1, 2, 3, 4, 5
 $arr[2]
 
 # add elements to array
-$arr = 1,2,3,4,5
-$arr += "six","seven"
+$arr = 1, 2, 3, 4, 5
+$arr += 'six', 'seven'
 $arr

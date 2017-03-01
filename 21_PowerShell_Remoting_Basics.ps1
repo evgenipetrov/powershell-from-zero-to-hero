@@ -13,10 +13,10 @@
 # book - https://www.gitbook.com/book/devopscollective/secrets-of-powershell-remoting/details
 
 # Interactive usage - 1:1
-Get-Help Enter-PSSession
+Get-Help -Name Enter-PSSession
 
 # One to many - 1:n
-Get-Help Invoke-Command
+Get-Help -Name Invoke-Command
 
 ## 2. Enabling manually
 
@@ -24,7 +24,7 @@ Get-Help Invoke-Command
 Enable-PSRemoting
 
 # enable it with CMD 
-winrm quickconfig
+winrm.cmd quickconfig
 
 ## 3. Enabling via GPO
 
@@ -43,61 +43,65 @@ winrm quickconfig
 Get-Command -Noun WSMan*
 
 # check connections
-cd WSMan:
-dir
+Set-Location -Path WSMan:
+Get-ChildItem
 
 # connect to computer
 Connect-WSMan -ComputerName dc
-dir
+Get-ChildItem
 
 # connect to another computer
-Connect-WSMan -ComputerName member,win7 # note how ComputerName parameter does not support array of string input
+Connect-WSMan -ComputerName member, win7 # note how ComputerName parameter does not support array of string input
 Connect-WSMan -ComputerName member
 Connect-WSMan -ComputerName win7
 
 # check WSMan server configuration
-cd WSman:
-dir
-cd .\dc
-dir
-cd .\Listener
-dir
-cd WSMan:\dc\Service\DefaultPorts
-dir
+Set-Location -Path WSman:
+Get-ChildItem
+Set-Location -Path .\dc
+Get-ChildItem
+Set-Location -Path .\Listener
+Get-ChildItem
+Set-Location -Path WSMan:\dc\Service\DefaultPorts
+Get-ChildItem
 
 # check PowerShell related configuration
-cd WSMan:\dc\Shell
-dir
+Set-Location -Path WSMan:\dc\Shell
+Get-ChildItem
 
 # enter 1:1 session to a single computer
 Enter-PSSession -ComputerName member.lab.pri
 
 # run any commands
 Get-Process
-Get-Process | gm
+Get-Process | Get-Member
 exit
 
 # execute 1:n command
-Invoke-Command -ScriptBlock { Get-EventLog -LogName Security -Newest 10 } -ComputerName dc.lab.pri, member.lab.pri
+Invoke-Command -ScriptBlock {
+  Get-EventLog -LogName Security -Newest 10 
+} -ComputerName dc.lab.pri, member.lab.pri
 
 # execute remotely and format locally
-Invoke-Command -ScriptBlock { Get-EventLog -LogName Security -Newest 10 } -ComputerName dc.lab.pri, member.lab.pri | Format-Table -GroupBy PSComputerName # | Out-File C:\temp\remote-logs.txt
+Invoke-Command -ScriptBlock {
+  Get-EventLog -LogName Security -Newest 10 
+} -ComputerName dc.lab.pri, member.lab.pri | Format-Table -GroupBy PSComputerName # | Out-File C:\temp\remote-logs.txt
 
 # double hop scenario
-cd WSMan:\localhost\Client\Auth
-dir
+Set-Location -Path WSMan:\localhost\Client\Auth
+Get-ChildItem
 
-cd WSMan:\localhost\Service\Auth
-dir
+Set-Location -Path WSMan:\localhost\Service\Auth
+Get-ChildItem
 
 # enable delegation as client
-Enable-WSManCredSSP -Role Client -DelegateComputer "*.lab.pri"
+Enable-WSManCredSSP -Role Client -DelegateComputer '*.lab.pri'
 
 # enable targets - GPO 
 # Computer Configuration > Policies > Administrative Templated > System > Credentials Delegation > Allow Delegating Fresh Credentials
 
 # make sure to specify -Authentication for the Enter-PSSession command
-Get-Help Enter-PSSession 
+Get-Help -Name Enter-PSSession 
 
 
 
