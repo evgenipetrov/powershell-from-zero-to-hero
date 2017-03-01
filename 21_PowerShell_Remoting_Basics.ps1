@@ -1,12 +1,22 @@
 ﻿<# 00. POWERSHELL REMOTING BASICS #>
 
-## 1. How it works
+## 1. How SSH works? How PowerShell Remoting works? Do they have anything in common?
 
 # Protocol
 # WS-MAN - web services for management. WinRM. HTTP(S). 5985 / 5986
+# mutual authentication with same forest - Kerberos
+# mutual authentication with trusted domain - Kerberos
+# mutual authentication with untrusted domain - 
+#       SSL
+#       TrustedHosts - no mutual authentication here!
+
+# book - https://www.gitbook.com/book/devopscollective/secrets-of-powershell-remoting/details
 
 # Interactive usage - 1:1
+Get-Help Enter-PSSession
+
 # One to many - 1:n
+Get-Help Invoke-Command
 
 ## 2. Enabling manually
 
