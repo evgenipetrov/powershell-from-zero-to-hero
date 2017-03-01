@@ -19,7 +19,9 @@ $rdc = New-PSSession -ComputerName rdc.remote.pri -Credential remote\administrat
 Get-PSSession
 
 # load active directory module on these machines
-Invoke-Command -Session $dc,$rdc -ScriptBlock { Import-Module ActiveDirectory }
+Invoke-Command -Session $dc, $rdc -ScriptBlock {
+  Import-Module -Name ActiveDirectory 
+}
 
 # now load the commands (shortcuts) locally
 Import-PSSession -Session $dc -Prefix LAB -Module ActiveDirectory
@@ -57,7 +59,9 @@ Get-ADUser -Identity Administrator -Properties Department, City
 
 # try the invvoke command way
 $dc = New-PSSession -ComputerName dc.lab.pri
-Invoke-Command -Session $dc -ScriptBlock { Get-ADUser -Identity Administrator | Set-ADUser -Department Technology -City Burgas }
+Invoke-Command -Session $dc -ScriptBlock {
+  Get-ADUser -Identity Administrator | Set-ADUser -Department Technology -City Burgas 
+}
 Get-LABADUser -Identity Administrator -Properties City
 
 # luckily some cmdlets do not need pipeline input
