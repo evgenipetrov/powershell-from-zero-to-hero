@@ -39,8 +39,12 @@ Enter-PSSession -Session $computers
 # same with invoke command - run a command on several remotes at same time
 Invoke-Command -Session $computers -ScriptBlock { dir c:\users }
 
-# remove a session
+# remove a session - why this does not work?
 $session | Remove-PSSession
+
+# remove the correct sessions:
+$computers | Remove-PSSession
+
 
 # or simply close the PowerShell console. sessions are not between copies of powershell
 # but try to be good and remove the sessions. do not leave garbage.
