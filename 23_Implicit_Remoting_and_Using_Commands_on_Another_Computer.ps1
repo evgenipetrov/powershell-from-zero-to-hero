@@ -42,4 +42,24 @@ Get-PSSession | Remove-PSSession
 Get-Command -Noun AD*
 Get-Command -Noun LAB*
 
+# points of concern - you cannot use the objects as normally you would!
+$dc = New-PSSession -ComputerName dc.lab.pri
+Import-PSSession -Session $dc -Prefix LAB -Module ActiveDirectory
+Get-LABADUser -Filter * | Get-Member # notice the deserialized object
 
+# example
+Get-LABADUser -Identity Administrator | Set-LABADUser -Department Technology -City Sofia
+
+# try the same with interactive session
+Enter-PSSession -Session $dc
+Get-ADUser -Identity Administrator | Set-ADUser -Department Technology -City Sofia
+Get-ADUser -Identity Administrator -Properties Department, City
+
+# try the invvoke command way
+$dc = New-PSSession -ComputerName dc.lab.pri
+Invoke-Command -Session $dc -ScriptBlock { Get-ADUser -Identity Administrator | Set-ADUser -Department Technology -City Burgas }
+Get-LABADUser -Identity Administrator -Properties City
+
+# luckily some cmdlets do not need pipeline input
+Set-LABADUser -Identity Administrator -City Plovdiv
+Get-LABADUser -Identity Administrator -Properties City
