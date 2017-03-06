@@ -52,10 +52,27 @@ Unregister-PSSessionConfiguration -Name test
 
 # now register the config on the DC machine
 Enter-PSSession -ComputerName dc.lab.pri 
-Register-PSSessionConfiguration
+Register-PSSessionConfiguration -Path C:\Temp\helpdesk.pssc -Name HelpDesk -SecurityDescriptorSddl 'O:NSG:BAD:P(A;;GA;;;BA)(A;;GXGWGR;;;S-1-5-21-2644782570-947505324-341236669-1109)S:P(AU;FA;GA;;;WD)(AU;SA;GXGW;;;WD)' -NoServiceRestart -RunAsCredential lab\administrator
+exit
 
+# restart WinRM remotely
+Invoke-Command -ScriptBlock {Restart-Service WinRM} -ComputerName dc.lab.pri
 
+# enter dc session again and verify
+Enter-PSSession -ComputerName dc.lab.pri
+Get-PSSessionConfiguration
 
-# test the configuration with the user
+# test the configuration with the user (CMD)
+runas /user:lab\jane "powershell"
 
+# in the new console: verify I am Jane
+$env:USERNAME
 
+# in the new console: try to invoke command on dc
+Invoke-Command -ConfigurationName helpdesk -ComputerName dc.lab.pri -ScriptBlock {enable-adaccount -identity test}
+
+# in the new console: try to invoke another command on dc
+Invoke-Command -ConfigurationName helpdesk -ComputerName dc.lab.pri -ScriptBlock {disable-adaccount -identity test}
+
+# try another hacking
+Enter-PSSession -ComputerName dc.lab.pri -ConfigurationName helpdesk
