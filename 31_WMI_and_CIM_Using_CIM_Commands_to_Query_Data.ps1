@@ -7,6 +7,31 @@ Get-Command -Noun cim*
 
 # Class definition vs Objest
 help Get-CimClass
+help Get-CimInstance
+
+# demo
+Get-CimClass -ClassName win32_bios | Select-Object -Property *
+
+# expand the proprties. note lots are read only. why?
+Get-CimClass -ClassName win32_bios | Select-Object -ExpandProperty CimClassProperties
+
+# tab completion works to some extent
+Get-CimClass -Namespace root/SecurityCenter2 -ClassName AntiSpywareProduct
+
+# this class is not documented. let us try to obtain more information
+Get-CimClass -Namespace root/SecurityCenter2 -ClassName AntiSpywareProduct | Select-Object -ExpandProperty cimclassproperties
+
+# try the ciminstances
+Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiSpywareProduct 
+
+# get all the properties of the cim instance
+Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiSpywareProduct | Select-Object *
+
+# compare it to wmi objects
+Get-WmiObject -Namespace root/securitycenter2 -class antispywareproduct | Select-Object *
+
+
+
 
 ## 2. Getting instances
 
