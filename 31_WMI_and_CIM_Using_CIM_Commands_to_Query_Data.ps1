@@ -30,15 +30,19 @@ Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntiSpywareProduct | 
 # compare it to wmi objects
 Get-WmiObject -Namespace root/securitycenter2 -class antispywareproduct | Select-Object *
 
-
-
-
 ## 2. Getting instances
+
+# connect to PS v2.0. mind the firewall
+Get-WmiObject -ComputerName win7.lab.pri -Class win32_bios
+Get-CimInstance -ComputerName win7.lab.pri -ClassName win32_bios
 
 ## 3. Working with command options
 
 ## 4. working with output
 
-## 5. Based on WS-MAN
+# try to retrieve  only one property
+Get-CimInstance -ClassName Win32_BIOS -Property SerialNumber
+
+## 5. Communication is based on WS-MAN
 
 
