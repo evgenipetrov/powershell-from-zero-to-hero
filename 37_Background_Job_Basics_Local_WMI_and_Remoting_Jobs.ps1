@@ -78,8 +78,7 @@ Invoke-Command -ScriptBlock { Get-EventLog -LogName System -Newest 100 } -Comput
 # how many powershell instances we will get running from the following command?
 Invoke-Command -ScriptBlock { dir c:\ -recurse} -ComputerName dc.lab.pri,member.lab.pri -AsJob -JobName FilesFoldersGetter
 Get-Process -Name powershell*
-
-Invoke-Command -ScriptBlock { Get-Process -Name powershell* -ComputerName dc.lab.pri,member.lab.pri} | format-table
+Invoke-Command -ScriptBlock { Get-Process -Name powershell* } -ComputerName dc.lab.pri,member.lab.pri | Format-Table -GroupBy PSComputerName
 
 
 
