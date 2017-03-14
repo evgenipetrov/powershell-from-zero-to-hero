@@ -80,8 +80,16 @@ Invoke-Command -ScriptBlock { dir c:\ -recurse} -ComputerName dc.lab.pri,member.
 Get-Process -Name powershell*
 Invoke-Command -ScriptBlock { Get-Process -Name powershell* } -ComputerName dc.lab.pri,member.lab.pri | Format-Table -GroupBy PSComputerName
 
+# stopping as job is not the same as stopping the process
+Get-Job
+Stop-Job -Name FilesFoldersGetter
+Get-Process -name powershell
 
+# in PS v3.0 this is how we can get the childjobs
+Get-Job -Id 2 -IncludeChildJob
 
+# PS 3.0 filter for jobs in a certain status
+Get-Job -id 2 -ChildJobState Completed
 
 
 
