@@ -86,7 +86,7 @@ $candidate = 0
  do {
     $candidate++
     $possiblename = "server$candidate"
-} while (-not $existing.Contains($possiblename))
+} until (-not $existing.Contains($possiblename))
 
 $possiblename
 
