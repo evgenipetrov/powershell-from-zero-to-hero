@@ -6,7 +6,7 @@ $dns = '192.168.10.2'
 
 
 
-Import-Module -Name $PSScriptRoot\..\LabTools\LabTools.psd1 -Force -Verbose
+Import-Module -Name C:\Projects\powershell-module-labtools\LabTools\LabTools.psd1 -Force -Verbose
 
 Rename-LabComputer -NewName $computename
 Set-LabNetAddress -IPv4Address $IPv4Address -PrefixLength $prefixLength -DNS $dns
