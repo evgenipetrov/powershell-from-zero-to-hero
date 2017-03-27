@@ -1,4 +1,5 @@
-﻿$commonPassword = 'demo!234'
+﻿#requires -Version 2.0 -Modules LabTools
+$commonPassword = 'demo!234'
 
 
 $computename = 'DC'
