@@ -18,6 +18,7 @@ Set-LabNetAddress -IPv4Address $IPv4Address -PrefixLength $prefixLength -DNS $dn
 $secureCommonPassword = ConvertTo-SecureString -String $commonPassword -AsPlainText -Force
 $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList ($domainAdminLogon, $secureCommonPassword)
 Add-Computer -DomainName $domainName -Credential $credential
+Restart-Computer -Force
 
 
 
