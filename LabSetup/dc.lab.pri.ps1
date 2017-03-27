@@ -1,5 +1,6 @@
 ﻿$commonPassword = 'demo!234'
 
+
 $computename = 'DC'
 
 $IPv4Address = '192.168.10.2'
@@ -15,7 +16,7 @@ Import-Module -Name C:\Projects\powershell-module-labtools\LabTools\LabTools.psd
 Rename-LabComputer -NewName $computename
 Set-LabNetAddress -IPv4Address $IPv4Address -PrefixLength $prefixLength -DNS $dns
 Install-LabWindowsServerFeature -Name 'AD-Domain-Services'
-Add-LabActiveDirectory -DomainName $domainName -DomainNetbiosName $domainNetbiosName -SafeModeAdministratorPassword $commonPassword
+$secureCommonPassword = ConvertTo-SecureString -String $commonPassword -AsPlainText -Force
+Add-LabActiveDirectory -DomainName $domainName -DomainNetbiosName $domainNetbiosName -SafeModeAdministratorPassword $secureCommonPassword
 
 
- 
