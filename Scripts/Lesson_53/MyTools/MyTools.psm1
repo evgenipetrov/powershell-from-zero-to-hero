@@ -4,9 +4,11 @@
   param
   (
     [Parameter(Mandatory = $true,
-                HelpMessage = 'Computer name to query')]
+        HelpMessage = 'Computer name to query',
+        Position = 1,
+        ValueFromPipeline = $true,
+    ValueFromPipelineByPropertyName = $true)]
     [Alias('Hostname')]
-    [Alias('Name')]
     [ValidatePattern('\w+\.lab\.pri')]
     [String[]]$ComputerName,
     
@@ -30,7 +32,7 @@
       
       switch ($DriveType)
       {
-        'Local'      
+        'Local' 
         {
           $params.Add('Filter', 'DriveType=3')
           break
@@ -47,12 +49,6 @@
         }
       }
       
-      
-      if ($LocalOnly)
-      {
-        $params.Add('Filter','DriveType=3')
-      }
-      
       Get-WmiObject @params |
       Select-Object @{
         n = 'Drive'
@@ -63,19 +59,19 @@
       @{
         n = 'Size'
         e = {
-          "{0:N2}" -f ($_.Size/1GB)
+          '{0:N2}' -f ($_.Size)
         }
       }, 
       @{
         n = 'FreeSpace'
         e = {
-          "{0:N2}" -f ($_.FreeSpace/1GB)
+          '{0:N2}' -f ($_.FreeSpace)
         }
       }, 
       @{
         n = 'FreePercent'
         e = {
-          "{0:N2}" -f ($_.FreeSpace / $_.Size * 100)
+          '{0:N2}' -f ($_.FreeSpace / $_.Size * 100)
         }
       }
     }
