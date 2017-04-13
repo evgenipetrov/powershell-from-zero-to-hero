@@ -95,7 +95,7 @@ function Set-ComputerState
 		[Parameter(Mandatory = $true,
 				   ValueFromPipeline = $true,
 				   ValueFromPipelineByPropertyName = $true)]
-		[string[]]$ComputerName,
+        [string[]]$ComputerName,
 		[switch]$Force,
 		[Parameter(ParameterSetName = 'Logoff')]
 		[switch]$Logoff,
@@ -225,4 +225,5 @@ function check2($computer)
 	return $works
 }
 
-Export-ModuleMember -Function Get-DiskSpaceInfo, Set-ComputerState
+Export-ModuleMember -Function Get-DiskSpaceInfo, Set-ComputerState -Variable ExampleDriveTypePreference
+
