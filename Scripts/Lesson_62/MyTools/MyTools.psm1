@@ -26,7 +26,7 @@
         'BIOSSerical'       = $bios.serialnumber
         'OptimalArchitecture' = $optimal
       }
-      $obj = New-Object -TypeName PSObject -Property $props
+      $obj = New-Object -TypeName PSObject -Property $props 
       $obj.psobject.typenames.insert(0,'Lab.MyTools.SystemInfo')
       Write-Output -InputObject $obj
     }
