@@ -1,0 +1,12 @@
+<computers>
+  <computer name="dc.lab.pri" build="9200">
+    <osversion />
+    <biosserial>VMware-56 4d f0 d6 e0 83 dc 6a-68 5e e4 cc 69 89 fb 5f</biosserial>
+    <manufacturer>VMware, Inc.</manufacturer>
+  </computer>
+  <computer name="client.lab.pri" build="9200">
+    <osversion />
+    <biosserial>VMware-56 4d 5f 41 b6 80 39 7a-ef 79 e2 24 20 dd be 4b</biosserial>
+    <manufacturer>VMware, Inc.</manufacturer>
+  </computer>
+</computers>

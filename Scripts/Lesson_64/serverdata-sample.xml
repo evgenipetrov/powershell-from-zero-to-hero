@@ -1,0 +1,19 @@
+﻿<servers>
+  <server name="dc.lab.pri" category="server" department="it">
+    <osversion>2012</osversion>
+    <bios Version="" Maker=""></bios>
+    <disks>
+      <disk driveletter="" size="" freespace="" />
+      <disk driveletter="" size="" freespace="" />
+    </disks>
+  </server>
+
+  <server name="client.lab.pri" category="client" department="finance">
+    <osversion>8</osversion>
+    <bios Version="" Maker=""></bios>
+  </server>
+
+  <!--
+  <client name="client.lab.pri" />
+  -->
+</servers>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Objects>
+  <Object Type="System.String">&lt;computers&gt;</Object>
+  <Object Type="System.String">  &lt;computer name="dc.lab.pri"&gt;</Object>
+  <Object Type="System.String">    &lt;osversion /&gt;</Object>
+  <Object Type="System.String">    &lt;biosserial /&gt;</Object>
+  <Object Type="System.String">  &lt;/computer&gt;</Object>
+  <Object Type="System.String" />
+  <Object Type="System.String">  &lt;computer name="client.lab.pri"&gt;</Object>
+  <Object Type="System.String">    &lt;osversion /&gt;</Object>
+  <Object Type="System.String">    &lt;biosserial /&gt;</Object>
+  <Object Type="System.String">  &lt;/computer&gt;</Object>
+  <Object Type="System.String" />
+  <Object Type="System.String">&lt;/computers&gt;</Object>
+</Objects>

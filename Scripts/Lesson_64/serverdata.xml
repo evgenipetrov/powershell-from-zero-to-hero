@@ -1,0 +1,12 @@
+﻿<computers>
+  <computer name="dc.lab.pri">
+    <osversion />
+    <biosserial />
+  </computer>
+
+  <computer name="client.lab.pri">
+    <osversion />
+    <biosserial />
+  </computer>
+
+</computers>
