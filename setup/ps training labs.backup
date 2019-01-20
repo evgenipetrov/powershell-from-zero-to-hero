@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RTSZDocument>
+  <RoyalDocument>
+    <ID>0758450a-6b62-47a4-8375-dbb30ae9c7d3</ID>
+    <Modified>01/20/2019 16:05:49.443</Modified>
+    <ModifiedBy>AMBER\evgeni</ModifiedBy>
+    <Name>ps training labs</Name>
+    <Created>01/20/2019 16:04:46.651</Created>
+    <CreatedBy>AMBER\evgeni</CreatedBy>
+    <PositionNr>0</PositionNr>
+    <IsExpanded>True</IsExpanded>
+    <DocumentType>Workspace</DocumentType>
+    <Color />
+    <CustomImage />
+    <CustomImageName />
+    <CustomImageList>{}</CustomImageList>
+    <Description />
+    <SaveOption>2</SaveOption>
+    <AutoSaveOnClose>False</AutoSaveOnClose>
+    <AutoSaveAfterChange>False</AutoSaveAfterChange>
+    <PasswordHash />
+    <LockdownPasswordHash />
+    <LockdownFeaturesInUse>{}</LockdownFeaturesInUse>
+    <FileName>D:\Projects\powershell-from-zero-to-hero\setup\ps training labs.rtsz</FileName>
+    <CustomField11 />
+    <CustomField12 />
+    <CustomField13 />
+    <CustomField14 />
+    <CustomField15 />
+    <CustomField16 />
+    <CustomField17 />
+    <CustomField18 />
+    <CustomField19 />
+    <CustomField20 />
+    <CustomProperties />
+    <CredentialPassword />
+    <CredentialPassphrase />
+  </RoyalDocument>
+  <RoyalTrash>
+    <ID>8367a25a-f9b4-4d66-847b-2aac6291bc0c</ID>
+    <Name>Trashcan</Name>
+    <Modified>01/20/2019 16:04:46.651</Modified>
+    <Created>01/20/2019 16:04:46.651</Created>
+    <ModifiedBy>AMBER\evgeni</ModifiedBy>
+    <CreatedBy>AMBER\evgeni</CreatedBy>
+    <PositionNr>2</PositionNr>
+    <IsExpanded>False</IsExpanded>
+    <ParentID>0758450a-6b62-47a4-8375-dbb30ae9c7d3</ParentID>
+    <CustomField11 />
+    <CustomField12 />
+    <CustomField13 />
+    <CustomField14 />
+    <CustomField15 />
+    <CustomField16 />
+    <CustomField17 />
+    <CustomField18 />
+    <CustomField19 />
+    <CustomField20 />
+    <CustomProperties />
+    <CredentialPassword />
+    <CredentialPassphrase />
+  </RoyalTrash>
+  <RoyalFolder>
+    <ID>a3b7c4f2-f3bb-4871-b212-496cb57d8e63</ID>
+    <Name>Connections</Name>
+    <Modified>01/20/2019 16:04:46.652</Modified>
+    <Created>01/20/2019 16:04:46.651</Created>
+    <ModifiedBy>AMBER\evgeni</ModifiedBy>
+    <CreatedBy>AMBER\evgeni</CreatedBy>
+    <PositionNr>4</PositionNr>
+    <IsExpanded>False</IsExpanded>
+    <ParentID>0758450a-6b62-47a4-8375-dbb30ae9c7d3</ParentID>
+    <ObjectSpecialUsage />
+    <CustomField11 />
+    <CustomField12 />
+    <CustomField13 />
+    <CustomField14 />
+    <CustomField15 />
+    <CustomField16 />
+    <CustomField17 />
+    <CustomField18 />
+    <CustomField19 />
+    <CustomField20 />
+    <CustomProperties />
+    <CredentialPassword />
+    <CredentialPassphrase />
+  </RoyalFolder>
+  <RoyalFolder>
+    <ID>3a3430a9-88f9-495e-8646-8e49c6d55f13</ID>
+    <Name>Credentials</Name>
+    <Modified>01/20/2019 16:04:46.652</Modified>
+    <Created>01/20/2019 16:04:46.652</Created>
+    <ModifiedBy>AMBER\evgeni</ModifiedBy>
+    <CreatedBy>AMBER\evgeni</CreatedBy>
+    <PositionNr>6</PositionNr>
+    <IsExpanded>False</IsExpanded>
+    <ParentID>0758450a-6b62-47a4-8375-dbb30ae9c7d3</ParentID>
+    <ObjectSpecialUsage />
+    <CustomField11 />
+    <CustomField12 />
+    <CustomField13 />
+    <CustomField14 />
+    <CustomField15 />
+    <CustomField16 />
+    <CustomField17 />
+    <CustomField18 />
+    <CustomField19 />
+    <CustomField20 />
+    <CustomProperties />
+    <CredentialPassword />
+    <CredentialPassphrase />
+  </RoyalFolder>
+  <RoyalFolder>
+    <ID>097c063c-8ea7-48bd-b039-14f3a4c6907f</ID>
+    <Name>Tasks</Name>
+    <Modified>01/20/2019 16:04:46.652</Modified>
+    <Created>01/20/2019 16:04:46.652</Created>
+    <ModifiedBy>AMBER\evgeni</ModifiedBy>
+    <CreatedBy>AMBER\evgeni</CreatedBy>
+    <PositionNr>8</PositionNr>
+    <IsExpanded>False</IsExpanded>
+    <ParentID>0758450a-6b62-47a4-8375-dbb30ae9c7d3</ParentID>
+    <ObjectSpecialUsage />
+    <CustomField11 />
+    <CustomField12 />
+    <CustomField13 />
+    <CustomField14 />
+    <CustomField15 />
+    <CustomField16 />
+    <CustomField17 />
+    <CustomField18 />
+    <CustomField19 />
+    <CustomField20 />
+    <CustomProperties />
+    <CredentialPassword />
+    <CredentialPassphrase />
+  </RoyalFolder>
+</RTSZDocument>

@@ -2,7 +2,7 @@
 <RTSZDocument>
   <RoyalDocument>
     <ID>0758450a-6b62-47a4-8375-dbb30ae9c7d3</ID>
-    <Modified>01/20/2019 16:05:49.443</Modified>
+    <Modified>01/20/2019 16:38:28.722</Modified>
     <ModifiedBy>AMBER\evgeni</ModifiedBy>
     <Name>ps training labs</Name>
     <Created>01/20/2019 16:04:46.651</Created>
@@ -68,7 +68,7 @@
     <ModifiedBy>AMBER\evgeni</ModifiedBy>
     <CreatedBy>AMBER\evgeni</CreatedBy>
     <PositionNr>4</PositionNr>
-    <IsExpanded>False</IsExpanded>
+    <IsExpanded>True</IsExpanded>
     <ParentID>0758450a-6b62-47a4-8375-dbb30ae9c7d3</ParentID>
     <ObjectSpecialUsage />
     <CustomField11 />
@@ -85,6 +85,174 @@
     <CredentialPassword />
     <CredentialPassphrase />
   </RoyalFolder>
+  <RoyalRDSConnection>
+    <ID>9a02aecb-b4f0-4036-ab90-12bc893e76bd</ID>
+    <Name>DC.LAB.PRI</Name>
+    <Modified>01/20/2019 16:32:34.309</Modified>
+    <Created>01/20/2019 16:31:12.678</Created>
+    <ModifiedBy>AMBER\evgeni</ModifiedBy>
+    <CreatedBy>AMBER\evgeni</CreatedBy>
+    <PositionNr>2</PositionNr>
+    <IsConnectionTemplate>False</IsConnectionTemplate>
+    <ParentID>a3b7c4f2-f3bb-4871-b212-496cb57d8e63</ParentID>
+    <ObjectSpecialUsage />
+    <URI>192.168.10.2</URI>
+    <UseGlobalPlugInWin>True</UseGlobalPlugInWin>
+    <PlugInWin />
+    <CustomField11 />
+    <CustomField12 />
+    <CustomField13 />
+    <CustomField14 />
+    <CustomField15 />
+    <CustomField16 />
+    <CustomField17 />
+    <CustomField18 />
+    <CustomField19 />
+    <CustomField20 />
+    <CustomProperties />
+    <CredentialPassword>MFUjThFz4TwolkzZAwSFDa60CpkgIvO4ViN2P2Fbnrw/rqO4Bvhy5979k0mTr/KXyrWi2fB3qbiYiF6PVDTHeHpox2fk+NfDVon9R2ckcMU=</CredentialPassword>
+    <CredentialPassphrase />
+    <GatewayPassword />
+    <ProxyPassword />
+    <CredentialUsername>LAB\Administrator</CredentialUsername>
+    <CredentialId>00000000-0000-0000-0000-000000000000</CredentialId>
+    <CredentialName />
+    <CredentialFromParent>False</CredentialFromParent>
+    <CredentialMode>2</CredentialMode>
+    <CredentialAutologon>True</CredentialAutologon>
+    <CredentialOmitDomain>False</CredentialOmitDomain>
+    <CredentialKeyMode>0</CredentialKeyMode>
+    <CredentialKeyFile />
+    <CredentialKeyContent />
+    <ColorDepth>24</ColorDepth>
+    <DesktopWidth>0</DesktopWidth>
+    <DesktopHeight>0</DesktopHeight>
+    <SmartSizing>False</SmartSizing>
+    <SmartReconnect>False</SmartReconnect>
+    <ColorFromParent>False</ColorFromParent>
+    <Color />
+    <CustomImage />
+    <CustomImageName />
+    <CustomImageList>{}</CustomImageList>
+    <RDPPort>3389</RDPPort>
+    <ConnectToAdministerOrConsole>False</ConnectToAdministerOrConsole>
+    <Description />
+    <PhysicalAddress />
+    <Favorite>False</Favorite>
+    <PinConnectionBar>True</PinConnectionBar>
+  </RoyalRDSConnection>
+  <RoyalRDSConnection>
+    <ID>f2448d5b-ab17-43f3-8080-50f47c2ebb96</ID>
+    <Name>WIN7.LAB.PRI</Name>
+    <Modified>01/20/2019 16:36:17.730</Modified>
+    <Created>01/20/2019 16:35:59.893</Created>
+    <ModifiedBy>AMBER\evgeni</ModifiedBy>
+    <CreatedBy>AMBER\evgeni</CreatedBy>
+    <PositionNr>4</PositionNr>
+    <IsConnectionTemplate>False</IsConnectionTemplate>
+    <URI>192.168.10.107</URI>
+    <UseGlobalPlugInWin>True</UseGlobalPlugInWin>
+    <PlugInWin />
+    <CustomField11 />
+    <CustomField12 />
+    <CustomField13 />
+    <CustomField14 />
+    <CustomField15 />
+    <CustomField16 />
+    <CustomField17 />
+    <CustomField18 />
+    <CustomField19 />
+    <CustomField20 />
+    <CustomProperties />
+    <CredentialPassword>MFUjThFz4TwolkzZAwSFDa60CpkgIvO4ViN2P2Fbnrw/rqO4Bvhy5979k0mTr/KXyrWi2fB3qbiYiF6PVDTHeHpox2fk+NfDVon9R2ckcMU=</CredentialPassword>
+    <CredentialPassphrase />
+    <GatewayPassword />
+    <ProxyPassword />
+    <CredentialUsername>LAB\Administrator</CredentialUsername>
+    <CredentialId>00000000-0000-0000-0000-000000000000</CredentialId>
+    <CredentialName />
+    <CredentialFromParent>False</CredentialFromParent>
+    <CredentialMode>2</CredentialMode>
+    <CredentialAutologon>True</CredentialAutologon>
+    <CredentialOmitDomain>False</CredentialOmitDomain>
+    <CredentialKeyMode>0</CredentialKeyMode>
+    <CredentialKeyFile />
+    <CredentialKeyContent />
+    <ColorDepth>24</ColorDepth>
+    <DesktopWidth>0</DesktopWidth>
+    <DesktopHeight>0</DesktopHeight>
+    <SmartSizing>False</SmartSizing>
+    <SmartReconnect>False</SmartReconnect>
+    <ColorFromParent>False</ColorFromParent>
+    <Color />
+    <CustomImage />
+    <CustomImageName />
+    <CustomImageList>{}</CustomImageList>
+    <RDPPort>3389</RDPPort>
+    <ConnectToAdministerOrConsole>False</ConnectToAdministerOrConsole>
+    <Description />
+    <PhysicalAddress />
+    <Favorite>False</Favorite>
+    <PinConnectionBar>True</PinConnectionBar>
+    <ParentID>a3b7c4f2-f3bb-4871-b212-496cb57d8e63</ParentID>
+    <ObjectSpecialUsage />
+  </RoyalRDSConnection>
+  <RoyalRDSConnection>
+    <ID>0c6b5f2d-e3dd-41d8-9bd6-e383d9c58050</ID>
+    <Name>CLIENT.LAB.PRI</Name>
+    <Modified>01/20/2019 16:38:46.645</Modified>
+    <Created>01/20/2019 16:38:28.722</Created>
+    <ModifiedBy>AMBER\evgeni</ModifiedBy>
+    <CreatedBy>AMBER\evgeni</CreatedBy>
+    <PositionNr>6</PositionNr>
+    <IsConnectionTemplate>False</IsConnectionTemplate>
+    <URI>192.168.10.100</URI>
+    <UseGlobalPlugInWin>True</UseGlobalPlugInWin>
+    <PlugInWin />
+    <CustomField11 />
+    <CustomField12 />
+    <CustomField13 />
+    <CustomField14 />
+    <CustomField15 />
+    <CustomField16 />
+    <CustomField17 />
+    <CustomField18 />
+    <CustomField19 />
+    <CustomField20 />
+    <CustomProperties />
+    <CredentialPassword>MFUjThFz4TwolkzZAwSFDa60CpkgIvO4ViN2P2Fbnrw/rqO4Bvhy5979k0mTr/KXyrWi2fB3qbiYiF6PVDTHeHpox2fk+NfDVon9R2ckcMU=</CredentialPassword>
+    <CredentialPassphrase />
+    <GatewayPassword />
+    <ProxyPassword />
+    <CredentialUsername>LAB\Administrator</CredentialUsername>
+    <CredentialId>00000000-0000-0000-0000-000000000000</CredentialId>
+    <CredentialName />
+    <CredentialFromParent>False</CredentialFromParent>
+    <CredentialMode>2</CredentialMode>
+    <CredentialAutologon>True</CredentialAutologon>
+    <CredentialOmitDomain>False</CredentialOmitDomain>
+    <CredentialKeyMode>0</CredentialKeyMode>
+    <CredentialKeyFile />
+    <CredentialKeyContent />
+    <ColorDepth>24</ColorDepth>
+    <DesktopWidth>0</DesktopWidth>
+    <DesktopHeight>0</DesktopHeight>
+    <SmartSizing>False</SmartSizing>
+    <SmartReconnect>False</SmartReconnect>
+    <ColorFromParent>False</ColorFromParent>
+    <Color />
+    <CustomImage />
+    <CustomImageName />
+    <CustomImageList>{}</CustomImageList>
+    <RDPPort>3389</RDPPort>
+    <ConnectToAdministerOrConsole>False</ConnectToAdministerOrConsole>
+    <Description />
+    <PhysicalAddress />
+    <Favorite>False</Favorite>
+    <PinConnectionBar>True</PinConnectionBar>
+    <ParentID>a3b7c4f2-f3bb-4871-b212-496cb57d8e63</ParentID>
+    <ObjectSpecialUsage />
+  </RoyalRDSConnection>
   <RoyalFolder>
     <ID>3a3430a9-88f9-495e-8646-8e49c6d55f13</ID>
     <Name>Credentials</Name>
