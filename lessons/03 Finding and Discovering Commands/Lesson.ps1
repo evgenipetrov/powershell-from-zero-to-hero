@@ -11,13 +11,18 @@ Add-PSSnapin Microsoft.SharePoint.PowerShell # example
 Get-Module # shows all loaded modules
 Get-Module -ListAvailable # shows available modules, it looks for them in specific locations
 Import-Module -Name [Name] # loads a module
-Import-Module -Name TroubleshootingPack
-Get-Command -Module TroubleshootingPack
+Import-Module -Name TroubleshootingPack # import module example
 
 # every PS console window is a different environment!
 
 
 ## 2. Searching for commands
+Get-Command -Module TroubleshootingPack # shows all cmdlets from specific module
+Get-Command -Name *pack* # filter example
+Get-Command -Name *pack* -CommandType Cmdlet, Function
+
+# naming convention - verb/sungular noun
+Get-Verb
 
 ## the "cmdlet" keyword
 
