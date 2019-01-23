@@ -45,6 +45,9 @@ Get-EventLog -Newest 10 Security
 
 # square brackets
 
+# positional
+# arrays
+
 Get-EventLog -LogName Security -Newest 5 -ComputerName client, dc
 
 # why use named parameters?
