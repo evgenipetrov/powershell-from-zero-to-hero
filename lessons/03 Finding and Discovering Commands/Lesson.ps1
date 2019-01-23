@@ -20,6 +20,8 @@ Import-Module -Name TroubleshootingPack # import module example
 Get-Command -Module TroubleshootingPack # shows all cmdlets from specific module
 Get-Command -Name *pack* # filter example
 Get-Command -Name *pack* -CommandType Cmdlet, Function
+Get-Command -Name *service* 
+
 
 # naming convention - verb/sungular noun
 Get-Verb
