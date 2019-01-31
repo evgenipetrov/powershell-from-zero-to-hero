@@ -41,8 +41,10 @@ Import-Csv -Path c:\computers.csv | Get-Service -Name *
 Get-EventLog -LogName Security -Newest 5 -ComputerName (Import-Csv c:\computers.csv)
 
 ## Expanding property values
-Get-EventLog -LogName Security -Newest 5 -ComputerName (Import-Csv c:\computers | Select-Object -Property machine)
-Get-EventLog -LogName Security -Newest 5 -ComputerName (Import-Csv c:\computers | Select-Object -ExpandProperty machine)
+Get-EventLog -LogName Security -Newest 5 -ComputerName (Import-Csv c:\computers.csv | Select-Object -Property machines | ForEach-Object {$_.machines})
+Get-EventLog -LogName Security -Newest 5 -ComputerName (Import-Csv c:\computers.csv | Select-Object -ExpandProperty machines)
+
+Import-Csv c:\computers.csv | Select-Object -Property machines | ForEach-Object { Get-EventLog -LogName Security -Newest 5 -ComputerName $_.machines }
 
 # note to myself. csv headers
 #computername, os, ip
