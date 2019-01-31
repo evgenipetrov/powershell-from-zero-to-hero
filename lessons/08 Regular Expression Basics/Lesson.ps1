@@ -8,7 +8,7 @@
 # ^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$
 
 # special characters
-# d\ digits
+# \d digits
 # {4,5} how many characters
 # \w letters
 # [a-z] range
