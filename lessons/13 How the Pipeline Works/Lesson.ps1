@@ -44,5 +44,6 @@ Get-EventLog -LogName Security -Newest 5 -ComputerName (Import-Csv c:\computers.
 Get-EventLog -LogName Security -Newest 5 -ComputerName (Import-Csv c:\computers | Select-Object -Property machine)
 Get-EventLog -LogName Security -Newest 5 -ComputerName (Import-Csv c:\computers | Select-Object -ExpandProperty machine)
 
-# note to myself.
+# note to myself. csv headers
 #computername, os, ip
+#machine, os, ip
