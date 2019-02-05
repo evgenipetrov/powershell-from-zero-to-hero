@@ -26,6 +26,7 @@
 # can we filter multiple times? objects | where | where | where
 Get-Service | Where-Object -Property X -EQ -Value Y
 # filter left/format right
+# internal vs external filters
 
 ## Basic boolean operators
 # -and -or
