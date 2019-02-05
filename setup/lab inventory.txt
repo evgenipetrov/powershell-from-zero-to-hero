@@ -1,5 +1,6 @@
 Name        Domain          IP                  OS
-CLIENT      LAB.PRI         192.168.10.100      Windows 8
+WIN10       LAB.PRI         192.168.10.101      Windows 10
+WIN8        LAB.PRI         192.168.10.100      Windows 8
 DC          LAB.PRI         192.168.10.2        Windows Server 2012R2
 MEMBER      LAB.PRI         192.168.10.10       Windows Server 2012R2
 WIN7        LAB.PRI         192.168.10.107      Windows 7 SP1
