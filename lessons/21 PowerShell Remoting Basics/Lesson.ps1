@@ -52,3 +52,11 @@ help Enable-WSManCredSSP
 
 # -Role server
 # -DelegateComputer
+
+Enable-WSManCredSSP -DelegateComputer member 
+Invoke-Command -ScriptBlock {Enable-WSManCredSSP -Role Server} -ComputerName member
+
+
+Get-PSSessionConfiguration
+Set-PSSessionConfiguration
+
